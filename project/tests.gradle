@@ -1,0 +1,50 @@
+apply plugin: "com.github.maiflai.scalatest"
+
+dependencies {
+    testImplementation group: "com.devskiller", name: "jfairy", version: "0.6.0"
+
+    testImplementation group: "org.scalactic", name: sclArt("scalactic"), version: "3.0.8"
+    testImplementation group: "org.scalatest", name: sclArt("scalatest"), version: "3.0.8"
+
+    // required by the scalatest gradle plugin
+    // asm `5.0.3` in `parboiled-java` conflicts with one `7.1` in tika.
+    // Please do not upgrade these versions unless scalatest update pegdown version
+    testRuntimeOnly group: "org.pegdown",   name: "pegdown",           version: "1.6.0"
+    testRuntimeOnly (group: "org.parboiled", name: "parboiled-java",   version: "1.1.8") {
+        testRuntimeOnly group: "org.ow2.asm", name: "asm",          version: "5.0.3"
+        testRuntimeOnly group: "org.ow2.asm", name: "asm-tree",     version: "5.0.3"
+        testRuntimeOnly group: "org.ow2.asm", name: "asm-analysis", version: "5.0.3"
+        testRuntimeOnly group: "org.ow2.asm", name: "asm-util",     version: "5.0.3"
+    }
+}
+
+test {
+    // force run task all the time
+    outputs.upToDateWhen { false }
+    dependsOn "cleanTest"
+
+    // Fail the "test" task on the first test failure
+    failFast = true
+
+    // Show test results.
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+    tags {
+
+    }
+}
+
+task runTest(type: Test) {
+    // force run task all the time
+    outputs.upToDateWhen { false }
+    dependsOn "cleanTest"
+    
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+

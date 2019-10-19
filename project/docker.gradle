@@ -1,0 +1,43 @@
+// NOTE: docker plugin depends on `application` plugin
+apply plugin: "com.bmuschko.docker-spring-boot-application"
+
+def composeImageName(String namespace, String name, String tag) {
+    return namespace + "/" + name + ":" + tag
+}
+
+docker {
+//    url = (isCi) ? project.teamcity["docker.engine.url"] : project.ext.get("docker.engine.url")
+
+    url = project.ext.get("docker.edi.engine.url")
+    certPath = new File(project.ext.get("docker.edi.cert.path"))
+
+    registryCredentials {
+        username = project.ext.get("docker.edi.publish.credentials.username")
+        password = project.ext.get("docker.edi.publish.credentials.password")
+    }
+
+    springBootApplication {
+        baseImage = project.ext.get("docker.edi.baseImage")
+        ports = [8080]
+        tag = composeImageName(
+                project.ext.get("docker.edi.image.namespace"),
+                project.ext.get("docker.edi.image.name"),
+                rootProject.name + "-" + composeReleaseVersion())
+
+    }
+
+}
+
+dockerCreateDockerfile {
+    label(["vendor": project.ext.get("docker.edi.image.label.vendor")])
+}
+
+task upload {
+    group "Publish"
+    dependsOn dockerPushImage
+}
+
+task release {
+    group "Publish"
+    dependsOn dockerPushImage
+}

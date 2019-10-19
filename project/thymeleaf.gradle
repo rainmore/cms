@@ -1,0 +1,7 @@
+dependencies {
+    // thymeleaf
+    implementation group: "org.thymeleaf", name: "thymeleaf",         version: "3.0.11.RELEASE"
+    implementation group: "org.thymeleaf", name: "thymeleaf-spring5", version: "3.0.11.RELEASE"
+    implementation group: "org.thymeleaf.extras",    name: "thymeleaf-extras-springsecurity5", version: "3.0.4.RELEASE"
+    implementation group: "nz.net.ultraq.thymeleaf", name: "thymeleaf-layout-dialect",         version: "2.4.1"
+}

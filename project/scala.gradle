@@ -1,0 +1,29 @@
+apply plugin: "scala"
+
+ext.sclArt = { String artifactId ->
+    sprintf("%s_%s", artifactId, "2.13")
+}
+
+dependencies {
+    implementation group: "org.scala-lang",         name: "scala-library", version: "2.13.1"
+    implementation group: "org.scala-lang.modules", name: sclArt("scala-java8-compat"), version: "0.9.0"
+    implementation group: "com.typesafe",           name: "config", version: "1.4.0"
+
+}
+
+tasks.withType(ScalaCompile) {
+    scalaCompileOptions.deprecation = true
+    scalaCompileOptions.additionalParameters = ["-feature"]
+    options.incremental = true
+    options.deprecation = true
+    options.compilerArgs += [
+            "-Xlint:all",
+            "-Xlint:-deprecation",
+            "-Xlint:-path",
+            "-Xlint:-serial"
+    ]
+
+    if (System.getenv().containsKey("ZINC_OPTS")) {
+        scalaCompileOptions.additionalParameters += System.env.ZINC_OPTS.tokenize(" ")
+    }
+}
