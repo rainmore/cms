@@ -7,7 +7,7 @@ import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import org.springframework.context.annotation.{Bean, Configuration}
 
 @Configuration
-class JsonConfiguration {
+class JsonConfig {
 
     @Bean
     def objectMapper: ObjectMapper = {

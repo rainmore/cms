@@ -1,0 +1,16 @@
+apply plugin: "com.github.alisiikh.scalastyle"
+apply plugin: "findbugs"
+apply plugin: "pmd"
+
+
+scalastyle {
+    scalaVersion = "2.12"
+    scalastyleVersion = "1.0.0"
+    config = file("${project.rootDir}/project/config/checkstyle/scalastyle_config.xml") // path to scalastyle config xml file
+    skip = false  // skips scalastyle check if set to true
+    inputEncoding = "UTF-8"
+    outputEncoding = "UTF-8"
+    failOnWarning = true
+    verbose = false
+    quiet = false
+}

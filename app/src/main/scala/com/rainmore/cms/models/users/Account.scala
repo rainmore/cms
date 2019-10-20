@@ -1,7 +1,8 @@
 package com.rainmore.cms.models.users
 
-import com.rainmore.cms.models.{Model, Nameable, users}
-import org.springframework.data.annotation.Id
+import com.rainmore.cms.models.{users, Model, Nameable}
+import org.springframework.data.annotation.{Id, Transient}
+import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 
 import scala.collection.mutable.Set
@@ -12,14 +13,21 @@ class Account extends Model with Nameable {
     @Id
     var id: String = _
 
+    @Indexed
     var firstName: String          = _
+    @Indexed
     var lastName: String           = _
+
+    @Indexed
     var email: String              = _
     var password: String           = _
+
+    @Indexed
     var status: Status.Value       = Status.Active
 
     var permissions: Set[Permission] = Set.empty[Permission]
 
+    @Transient
     override def getName(): String = "%s %s".format(firstName, lastName).trim
 }
 

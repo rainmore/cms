@@ -1,7 +1,7 @@
-package com.rainmore.cms.utils
+package com.rainmore.cms.configs.time
 
 import java.lang.{Long => JLong}
-import java.time.{Instant, LocalDate, LocalDateTime, LocalTime, ZoneId}
+import java.time._
 import java.time.format.{DateTimeFormatter, DateTimeFormatterBuilder}
 import java.util.Date
 
@@ -43,33 +43,45 @@ object DateUtils {
 
     def asLocalDate(date: Date): LocalDate = Instant.ofEpochMilli(date.getTime).atZone(zoneId).toLocalDate
 
-    class LocalDateConverter(formatter: DateTimeFormatter) extends Converter[String, LocalDate] {
+    class StringToLocalDateConverter(formatter: DateTimeFormatter) extends Converter[String, LocalDate] {
 
         def this() = this(DateUtils.LocalDateFormatter)
 
         override def convert(source: String): LocalDate =  {
-            if (source == null || source.isEmpty()) null
-            else LocalDate.parse(source, formatter)
+            Option(source).filterNot(_.isEmpty).map(LocalDate.parse(_, formatter)).orNull
         }
     }
 
-    class LocalTimeConverter(formatter: DateTimeFormatter) extends Converter[String, LocalTime] {
+    class StringToLocalTimeConverter(formatter: DateTimeFormatter) extends Converter[String, LocalTime] {
 
         def this() = this(DateUtils.LocalTimeFormatter)
 
         override def convert(source: String): LocalTime =  {
-            if (source == null || source.isEmpty()) null
-            else LocalTime.parse(source, formatter)
+            Option(source).filterNot(_.isEmpty).map(LocalTime.parse(_, formatter)).orNull
         }
     }
 
-    class LocalDateTimeConverter(formatter: DateTimeFormatter) extends Converter[String, LocalDateTime] {
+    class StringToLocalDateTimeConverter(formatter: DateTimeFormatter) extends Converter[String, LocalDateTime] {
 
         def this() = this(DateUtils.DefaultLocalDateTimeFormatter)
 
         override def convert(source: String): LocalDateTime = {
-            if (source == null || source.isEmpty()) null
-            else LocalDateTime.parse(source, formatter)
+            Option(source).filterNot(_.isEmpty).map(LocalDateTime.parse(_, formatter)).orNull
         }
     }
+
+    class LocalDateTimeToInstanceConverter extends Converter[LocalDateTime, Instant] {
+
+        override def convert(source: LocalDateTime): Instant = {
+            Option(source).map(_.atZone(zoneId).toInstant).orNull
+        }
+    }
+
+    class InstanceToLocalDateTimeConverter extends Converter[Instant, LocalDateTime] {
+
+        override def convert(source: Instant): LocalDateTime = {
+            Option(source).map(LocalDateTime.ofInstant(_, zoneId)).orNull
+        }
+    }
+
 }

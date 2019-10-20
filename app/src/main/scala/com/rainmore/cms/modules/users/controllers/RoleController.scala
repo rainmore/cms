@@ -7,7 +7,7 @@ import org.springframework.data.domain.{Page, Pageable}
 import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, RestController => SpringRestController}
 
 @SpringRestController("users.controllers.RoleController")
-@RequestMapping(Array("/users/roles"))
+@RequestMapping(Array("/api/users/roles"))
 class RoleController @Inject
 (
     roleRepository: RoleRepository

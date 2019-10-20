@@ -2,7 +2,7 @@ package com.rainmore.cms.configs.apis
 
 import java.util.Locale
 
-import com.rainmore.cms.utils.DateUtils
+import com.rainmore.cms.configs.time.DateUtils
 import org.springframework.context.annotation.{Bean, Configuration}
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import org.springframework.web.servlet.i18n.SessionLocaleResolver
 
 @Configuration
-class ApiConfig extends WebMvcConfigurer{
+class ApiConfig extends WebMvcConfigurer {
 
     private val defaultPaginationConfig: PaginationConfig = PaginationConfig()
 
@@ -27,16 +27,16 @@ class ApiConfig extends WebMvcConfigurer{
 
     override def addArgumentResolvers(argumentResolvers: java.util.List[HandlerMethodArgumentResolver]): Unit = {
         val resolver: PageableHandlerMethodArgumentResolver = new PageableHandlerMethodArgumentResolver
-        resolver.setFallbackPageable(PageRequest.of(0, 40))
+        resolver.setFallbackPageable(PaginationConfig.defaultPageRequest)
         resolver.setPrefix("_")
         argumentResolvers.add(resolver)
     }
 
     override def addFormatters(registry: FormatterRegistry): Unit = {
         super.addFormatters(registry)
-        registry.addConverter(new DateUtils.LocalDateConverter)
-        registry.addConverter(new DateUtils.LocalDateTimeConverter)
-        registry.addConverter(new DateUtils.LocalTimeConverter)
+        registry.addConverter(new DateUtils.StringToLocalDateConverter)
+        registry.addConverter(new DateUtils.StringToLocalDateTimeConverter)
+        registry.addConverter(new DateUtils.StringToLocalTimeConverter)
     }
 
     @Bean def paginationConfig: PaginationConfig = defaultPaginationConfig

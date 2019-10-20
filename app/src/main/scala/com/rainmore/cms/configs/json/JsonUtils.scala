@@ -19,13 +19,17 @@ class JsonUtils @Autowired()
     }
 
     def toJson(data: Any): String = {
-        if (data == null) return null
-        try {
-            new String(convertObjectToJsonBytes(data), StandardCharsets.UTF_8)
+        if (data == null) {
+            null
         }
-        catch {
-            case ex: IOException =>
-                throw new RuntimeException("An error occurred while converting %s object to JSON".format(data), ex)
+        else {
+            try {
+                new String(convertObjectToJsonBytes(data), StandardCharsets.UTF_8)
+            }
+            catch {
+                case ex: IOException =>
+                    throw new RuntimeException("An error occurred while converting %s object to JSON".format(data), ex)
+            }
         }
     }
 

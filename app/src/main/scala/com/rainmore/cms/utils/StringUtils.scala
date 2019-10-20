@@ -11,13 +11,15 @@ import org.apache.commons.lang3.RandomStringUtils
 import scala.jdk.CollectionConverters._
 
 object StringUtils {
+    private val DefaultLength = 10
+    private val LineStart = 0
     /**
      * Securely generates a set of random alphanumeric characters of the provided length.
      *
      * @param length The length of the resulting string.
      * @return A generated string.
      */
-    def randomString(length: Int = 10): String = RandomStringUtils.random(length, 0, 0, true, true, null, new SecureRandom)
+    def randomString(length: Int = DefaultLength): String = RandomStringUtils.random(length, LineStart, LineStart, true, true, null, new SecureRandom)
 
     def replaceTokens(tpl: String, tokens: Map[CharSequence, CharSequence]): String = {
         var result = tpl

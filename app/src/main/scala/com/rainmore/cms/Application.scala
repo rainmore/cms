@@ -8,4 +8,4 @@ object Application extends App {
 }
 
 @SpringBootApplication
-class Application {}
+class Application
