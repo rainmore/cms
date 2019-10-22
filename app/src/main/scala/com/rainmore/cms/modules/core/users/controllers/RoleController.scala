@@ -1,12 +1,12 @@
-package com.rainmore.cms.modules.users.controllers
+package com.rainmore.cms.modules.core.users.controllers
 
-import com.rainmore.cms.models.users.{Account, Role}
-import com.rainmore.cms.modules.users.services.{AccountRepository, RoleRepository}
+import com.rainmore.cms.models.core.users.Role
+import com.rainmore.cms.modules.core.users.services.RoleRepository
 import javax.inject.Inject
 import org.springframework.data.domain.{Page, Pageable}
 import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, RestController => SpringRestController}
 
-@SpringRestController("users.controllers.RoleController")
+@SpringRestController("core.users.controllers.RoleController")
 @RequestMapping(Array("/api/users/roles"))
 class RoleController @Inject
 (

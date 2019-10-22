@@ -1,13 +1,13 @@
-package com.rainmore.cms.modules.users.controllers
+package com.rainmore.cms.modules.core.users.controllers
 
-import com.rainmore.cms.models.users.Permission
-import com.rainmore.cms.modules.users.services.PermissionRepository
+import com.rainmore.cms.models.core.users.Permission
+import com.rainmore.cms.modules.core.users.services.PermissionRepository
 import javax.inject.Inject
 import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, RestController => SpringRestController}
 
 import scala.jdk.CollectionConverters._
 
-@SpringRestController("users.controllers.PermissionController")
+@SpringRestController("core.users.controllers.PermissionController")
 @RequestMapping(Array("/api/users/permissions"))
 class PermissionController @Inject()
 (

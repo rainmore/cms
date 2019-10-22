@@ -1,6 +1,6 @@
-package com.rainmore.cms.models.users
+package com.rainmore.cms.models.core.users
 
-import com.rainmore.cms.models.{users, Model, Nameable}
+import com.rainmore.cms.models.core.{Model, Nameable}
 import org.springframework.data.annotation.{Id, Transient}
 import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document

@@ -2,13 +2,13 @@ package com.rainmore.cms.configs.json
 
 import java.io.IOException
 import java.nio.charset.StandardCharsets
+import javax.inject.Inject
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class JsonUtils @Autowired()
+class JsonUtils @Inject()
 (
     objectMapper: ObjectMapper
 ) {
