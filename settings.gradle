@@ -1,2 +1,2 @@
 rootProject.name = 'cms'
-include 'elements', 'app', 'ui'
+include 'elements', 'ui'
