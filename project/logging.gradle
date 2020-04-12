@@ -1,18 +1,23 @@
-configurations {
-    all*.exclude group: "org.apache.logging.log4j"
-}
-
 dependencies {
-    // logging
-    implementation group: "org.slf4j", name: "slf4j-api",        version: "1.7.26"
-    implementation group: "org.slf4j", name: "log4j-over-slf4j", version: "1.7.26"
-    implementation group: "ch.qos.logback", name: "logback-classic", version: "1.2.3"
-    implementation group: "ch.qos.logback", name: "logback-core",    version: "1.2.3"
+    implementation group: 'org.slf4j', name: 'slf4j-api',        version: project.ext.get('slf4j.version')
+    implementation group: 'org.slf4j', name: 'log4j-over-slf4j', version: project.ext.get('slf4j.version')
+//    implementation group: 'org.slf4j', name: 'slf4j-nop',        version: project.ext.get('slf4j.version')
 
-    implementation group: "org.codehaus.groovy", name: "groovy", version: "2.5.6"
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: project.ext.get('logback.version')
+    implementation group: 'ch.qos.logback', name: 'logback-core',    version: project.ext.get('logback.version')
 
-    if (getPlugins().hasPlugin("scala")) {
-        implementation group: "com.typesafe.scala-logging", name: sclArt("scala-logging"), version: "3.9.2"
+    runtime group: 'org.codehaus.groovy', name: 'groovy', version: project.ext.get('groovy.version')
+
+/*
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api',        version: project.ext.get('apache.log4j.version')
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core',       version: project.ext.get('apache.log4j.version')
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: project.ext.get('apache.log4j.version')
+*/
+    if (getPlugins().hasPlugin('scala')) {
+        implementation group: 'com.typesafe.scala-logging', name: sclArt('scala-logging'), version: project.ext.get('typesafe.logging.version')
     }
 }
 
+configurations {
+    all*.exclude group: 'org.apache.logging.log4j'
+}

@@ -1,5 +1,4 @@
 apply plugin: "com.github.alisiikh.scalastyle"
-apply plugin: "findbugs"
 apply plugin: "pmd"
 
 

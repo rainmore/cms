@@ -1,14 +1,23 @@
 dependencies {
+//    implementation group: 'com.google.guava',   name: 'guava',             version: project.ext.get('google.guava.version')
+    implementation group: 'org.apache.commons', name: 'commons-lang3',     version: project.ext.get('apache.commons.lang.version')
+    implementation group: 'org.apache.commons', name: 'commons-email',     version: project.ext.get('apache.commons.email.version')
+    implementation group: 'commons-codec',      name: 'commons-codec',     version: project.ext.get('apache.commons.codec.version')
+    implementation group: 'commons-validator',  name: 'commons-validator', version: project.ext.get('apache.commons.validator.version')
+// https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation group: 'commons-io',         name: 'commons-io',        version: project.ext.get('apache.commons.io.version')
 
-    implementation group: "org.apache.commons", name: "commons-lang3", version: "3.8.1"
-    implementation group: "commons-io",         name: "commons-io", version: "2.6"
-    implementation group: "org.apache.commons", name: "commons-email", version: "1.5"
-    implementation group: "commons-validator", name: "commons-validator", version: "1.6"
-    implementation group: "commons-codec", name: "commons-codec", version: "1.12"
-    implementation group: "javax.xml.bind", name: "jaxb-api", version: "2.3.1"
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-csv
+    implementation group: 'org.apache.commons', name: 'commons-csv',       version: project.ext.get('apache.commons.csv.version')
 
-    implementation group: "org.bouncycastle",   name: "bcmail-jdk15on",    version: "1.61"
 
-    implementation group: "javax.inject",      name: "javax.inject",       version: "1"
+    implementation group: 'org.bouncycastle',   name: 'bcmail-jdk15on',    version: project.ext.get('bouncycastle.version')
+
+
+    implementation group: 'javax.inject',      name: 'javax.inject',       version: '1'
+
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    runtimeOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
 
 }
