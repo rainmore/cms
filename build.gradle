@@ -53,19 +53,20 @@ apply plugin: 'idea'
 apply plugin: 'application'
 
 apply from: 'project/assemble.gradle'
-apply from: 'project/util.gradle'
+apply from: 'project/utils.gradle'
 apply from: 'project/scala.gradle'
 apply from: 'project/logging.gradle'
 apply from: 'project/common.gradle'
 apply from: 'project/jackson.gradle'
 apply from: 'project/db.gradle'
+apply from: 'project/jpa.gradle'
 apply from: 'project/spring.gradle'
 apply from: 'project/thymeleaf.gradle'
 apply from: 'project/tests.gradle'
-apply from: 'project/webjars.gradle'
 // ScalaStyle doesn't support for 2.13
 //apply from: 'project/quality.gradle'
 apply from: 'project/docker.gradle'
+apply from: 'project/flyway.gradle'
 apply from: 'project/swagger2.gradle'
 
 mainClassName = [group, name, 'Application'].join('.')
