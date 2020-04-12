@@ -1,6 +1,5 @@
 package com.rainmore.cms.domains.core.users
 
-import com.rainmore.cms.domains.Domain
 import com.rainmore.cms.domains.core.ArchivableAuditableDomain
 import java.time.LocalDateTime
 import java.util.HashSet
@@ -31,7 +30,7 @@ data class Account
         @Enumerated(value = EnumType.STRING)
         var status: Status = Status.SUSPENDED
 
-) : ArchivableAuditableDomain<Account>() {
+) : ArchivableAuditableDomain<Account>(), Nameable {
 
     @Column(name = "lastLoginAt")
     var lastLoginAt: LocalDateTime? = null

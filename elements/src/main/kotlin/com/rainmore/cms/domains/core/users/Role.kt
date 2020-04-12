@@ -1,6 +1,5 @@
 package com.rainmore.cms.domains.core.users
 
-import com.rainmore.cms.domains.Domain
 import com.rainmore.cms.domains.core.ArchivableAuditableDomain
 import javax.persistence.*
 
