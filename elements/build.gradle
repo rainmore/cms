@@ -1,0 +1,71 @@
+apply plugin: 'kotlin'
+apply plugin: 'org.jetbrains.kotlin.plugin.spring'
+apply plugin: 'org.jetbrains.kotlin.plugin.jpa'
+apply plugin: 'org.jetbrains.kotlin.plugin.noarg'
+apply plugin: 'org.jetbrains.kotlin.plugin.allopen'
+apply plugin: 'org.jetbrains.kotlin.kapt'
+apply plugin: 'com.github.hauner.jarTest'
+apply plugin: 'idea'
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
+
+configurations {
+    all*.exclude group: 'org.apache.logging.log4j'
+}
+
+apply from: '../project/assemble.gradle'
+apply from: '../project/logging.gradle'
+
+ext.currentQuery = '011_Update_Exemption_Code.sql'
+
+allOpen {
+    annotation("javax.persistence.Entity")
+    annotation("javax.persistence.MappedSuperclass")
+    annotation("javax.persistence.Embeddable")
+}
+
+dependencies {
+    implementation  group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8',   version: project.ext.get('kotlin.version')
+    implementation  group: 'org.jetbrains.kotlin', name: 'kotlin-reflect',       version: project.ext.get('kotlin.version')
+
+    // query dsl
+    kapt     group: 'com.querydsl', name: 'querydsl-apt',   version: project.ext.get('querydsl.version'), classifier: 'jpa'
+    compile  group: 'com.querydsl', name: 'querydsl-jpa',   version: project.ext.get('querydsl.version')
+
+    implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
+
+    annotationProcessor group: 'com.querydsl', name: 'querydsl-apt',   version: project.ext.get('querydsl.version') , classifier: 'jpa'
+    annotationProcessor group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api',   version: '1.0.2.Final'
+
+    testImplementation  group: 'org.jetbrains.kotlin', name: 'kotlin-test',         version: project.ext.get('kotlin.version')
+    testImplementation  group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit',   version: project.ext.get('kotlin.version')
+
+    implementation group: 'org.hibernate',  name: 'hibernate-entitymanager', version: project.ext.get('hibernate.version')
+    implementation group: 'org.hibernate',  name: 'hibernate-java8',         version: project.ext.get('hibernate.version')
+
+    // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+    implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: project.ext.get('hibernate.validator.version')
+
+}
+
+idea {
+    module {
+        inheritOutputDirs = false
+        def kaptMain = file("$buildDir/classes/kotlin/main")
+        sourceDirs += kaptMain
+        generatedSourceDirs += kaptMain
+        outputDir = kaptMain
+    }
+}
+
