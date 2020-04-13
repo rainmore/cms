@@ -1,6 +1,7 @@
 package com.rainmore.cms.modules.core.system.security.auth
 
 import java.lang.{String => JString}
+
 import com.rainmore.cms.domains.core.users.{LoginToken, QLoginToken}
 import com.rainmore.cms.modules.core.jpa.{BaseQuerydslRepositorySupportImpl, BaseRepository}
 import org.springframework.stereotype.Repository

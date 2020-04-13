@@ -2,7 +2,7 @@ package com.rainmore.cms.modules.core.users.services
 
 import java.lang.{Long => JLong}
 
-import com.rainmore.cms.domains.core.users.{Account, Permission, QAccount, QPermission, QRole, Role}
+import com.rainmore.cms.domains.core.users._
 import com.rainmore.cms.modules.core.jpa.{BaseQuerydslRepositorySupportImpl, BaseRepository}
 import org.springframework.stereotype.Repository
 
@@ -28,9 +28,9 @@ class PermissionRepositoryImpl
         val qAccount = QAccount.account
         val criteria = specification.isActualCondition.and(qAccount.eq(account))
         from(qAccount)
-            .join(qAccount.permissions, QPermission)
+            .innerJoin(qAccount.permissions, qEntity)
             .where(criteria)
-            .select(QPermission)
+            .select(qEntity)
             .orderBy(specification.defaultSort: _*)
             .fetch().asScala.toVector
     }
@@ -40,9 +40,9 @@ class PermissionRepositoryImpl
         val qRole = QRole.role
         val criteria = specification.isActualCondition.and(qRole.in(roles.asJava))
         from(qRole)
-            .join(qRole.permissions, QPermission)
+            .join(qRole.permissions, qEntity)
             .where(criteria)
-            .select(QPermission)
+            .select(qEntity)
             .orderBy(specification.defaultSort: _*)
             .fetch().asScala.toVector
     }

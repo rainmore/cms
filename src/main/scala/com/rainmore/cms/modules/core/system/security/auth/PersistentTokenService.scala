@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service
 import scala.compat.java8.OptionConverters._
 import scala.jdk.CollectionConverters._
 
-@Service
+@Service("core.system.security.auth.PersistentTokenService")
 class PersistentTokenService @Inject()
 (
     accountService: AccountService,

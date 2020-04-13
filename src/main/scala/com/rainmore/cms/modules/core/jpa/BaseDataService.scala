@@ -5,13 +5,12 @@ import com.querydsl.core.types.dsl.{BooleanExpression, EntityPathBase}
 import com.rainmore.cms.domains.HasId
 import com.rainmore.cms.domains.core.users.Account
 import javax.transaction.Transactional
-import org.springframework.data.domain.{Page, Pageable, Sort}
-import org.springframework.data.querydsl.QSort
+import org.springframework.data.domain.{Page, Pageable}
 
 import scala.jdk.CollectionConverters._
 import scala.jdk.OptionConverters._
 
-trait BaseDataService[T <: HasId[ID], ID <: java.io.Serializable, Q <: EntityPathBase[T], R <: BaseRepository[T, ID, Q], S <: BaseSpecification[T, ID]] {
+trait BaseDataService[T <: HasId[ID], ID <: java.io.Serializable, Q <: EntityPathBase[T], R <: BaseRepository[T, ID, Q], S <: BaseSpecification[T, ID, Q]] {
 
     protected val getRepository: R
 

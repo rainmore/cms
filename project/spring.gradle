@@ -28,9 +28,7 @@ bootRun {
     shouldRunAfter clean, processResources
     jvmArgs += "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
 
-    if (System.env.WYTN_ENV) {
-        environment.SPRING_PROFILES_ACTIVE = System.env.WYTN_ENV
-    }
+    environment.SPRING_PROFILES_ACTIVE = 'dev'
 }
 
 jar {

@@ -33,7 +33,7 @@ plugins {
 }
 
 description = 'Content Manage System'
-group = 'com.rainmore.cms'
+group = 'com.rainmore'
 version '1.0.0'
 
 ext {

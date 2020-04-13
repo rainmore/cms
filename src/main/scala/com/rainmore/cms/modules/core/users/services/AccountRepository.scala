@@ -7,7 +7,8 @@ import com.rainmore.cms.modules.core.jpa.{BaseQuerydslRepositorySupportImpl, Bas
 import org.springframework.stereotype.Repository
 
 @Repository
-trait AccountRepository extends BaseRepository[Account, JLong, QAccount]
+trait AccountRepository
+    extends BaseRepository[Account, JLong, QAccount]
     with AccountRepositoryCustom
 
 trait AccountRepositoryCustom

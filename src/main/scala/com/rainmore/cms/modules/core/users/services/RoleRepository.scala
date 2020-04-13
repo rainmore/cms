@@ -9,10 +9,11 @@ import org.springframework.stereotype.Repository
 import scala.jdk.CollectionConverters._
 
 @Repository
-trait RoleRepository extends BaseRepository[Role, JLong, QRole]
+trait RoleRepository
+    extends BaseRepository[Role, JLong, QRole]
     with RoleRepositoryCustom
 
-trait RoleRepositoryCustom {
+trait RoleRepositoryCustom{
     def findBy(account: Account): Seq[Role]
 }
 
@@ -26,10 +27,10 @@ class RoleRepositoryImpl
         val qAccount = QAccount.account
         val criteria = specification.isActualCondition.and(qAccount.eq(account))
         from(qAccount)
-            .join(qAccount.roles, QRole)
+            .join(qAccount.roles, qEntity)
             .where(criteria)
             .orderBy(specification.defaultSort: _*)
-            .select(QRole)
+            .select(qEntity)
             .fetch().asScala.toVector
     }
 

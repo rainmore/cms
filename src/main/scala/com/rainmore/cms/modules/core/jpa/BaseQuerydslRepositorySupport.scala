@@ -34,7 +34,7 @@ trait BaseQuerydslRepositorySupport[T <: HasId[ID], ID <: java.io.Serializable, 
 abstract class BaseQuerydslRepositorySupportImpl[T <: HasId[ID], ID <: java.io.Serializable, Q <: EntityPathBase[T]]
 (
     clazz: Class[T],
-    qEntity: Q
+    protected  val qEntity: Q
 ) extends org.springframework.data.jpa.repository.support.QuerydslRepositorySupport(clazz)
         with BaseQuerydslRepositorySupport[T, ID, Q] {
 
@@ -82,7 +82,7 @@ abstract class BaseQuerydslRepositorySupportImpl[T <: HasId[ID], ID <: java.io.S
 
         limit.foreach(limit => query = query.limit(limit))
 
-        offset.foreach(offset => query = query.limit(offset))
+        offset.foreach(offset => query = query.offset(offset))
 
         query
     }

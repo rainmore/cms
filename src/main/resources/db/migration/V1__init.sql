@@ -134,24 +134,25 @@ create table userAccountsRoles
 			on update cascade
 );
 
-create table cosco_edi_can_dev.userAccountsPermissions
+create table userAccountsPermissions
 (
 	userAccountId bigint unsigned not null,
 	userPermissionId bigint unsigned not null,
 	primary key (userAccountId, userPermissionId),
 	constraint FK_userAccountsPermissions_userAccountId
-		foreign key (userAccountId) references cosco_edi_can_dev.userAccounts (id)
+		foreign key (userAccountId) references userAccounts (id)
 			on update cascade,
 	constraint FK_userAccountsPermissions_userPermissionId
-		foreign key (userPermissionId) references cosco_edi_can_dev.userPermissions (id)
+		foreign key (userPermissionId) references userPermissions (id)
 			on update cascade
 );
 
-INSERT INTO userAccounts(id, status, nickname, password, email, firstName, lastName, createdAt, createdBy, updatedAt, updatedBy) VALUES
-    (1, 'ACTIVE', 'rainmore', '$2a$10$evcItoK3Jj13m74WOAd05u7Gw4MGYVTYToytvyu.IG9xP57SSD7au', 'rainmore24@gmail.com', 'Admin', '', NOW(), 1, NOW(), 1),
-    (2, 'ACTIVE', 'admin', '$2a$10$evcItoK3Jj13m74WOAd05u7Gw4MGYVTYToytvyu.IG9xP57SSD7au', 'cliff@cosco.com.au', 'Cliff', 'Sun', NOW(), 1, NOW(), 1),
-    (3, 'ACTIVE', 'demo', '$2a$10$evcItoK3Jj13m74WOAd05u7Gw4MGYVTYToytvyu.IG9xP57SSD7au', 'demo@test.com',  'Demo', 'Test', NOW(), 1, NOW(), 1)
+INSERT INTO userAccounts(id, status, password, email, firstName, lastName, createdAt, createdBy, updatedAt, updatedBy) VALUES
+(1, 'ACTIVE', '$2a$10$evcItoK3Jj13m74WOAd05u7Gw4MGYVTYToytvyu.IG9xP57SSD7au', 'rainmore24@gmail.com', 'Super', '', NOW(), 1, NOW(), 1),
+(2, 'ACTIVE', '$2a$10$evcItoK3Jj13m74WOAd05u7Gw4MGYVTYToytvyu.IG9xP57SSD7au', 'admin@test.com', 'Admin', '', NOW(), 1, NOW(), 1),
+(3, 'ACTIVE', '$2a$10$evcItoK3Jj13m74WOAd05u7Gw4MGYVTYToytvyu.IG9xP57SSD7au', 'demo@test.com',  'Demo', 'Test', NOW(), 1, NOW(), 1)
 ;
+
 
 
 INSERT INTO userRoles(id, name, parentId, isAlmighty, createdAt, createdBy, updatedAt, updatedBy) VALUES

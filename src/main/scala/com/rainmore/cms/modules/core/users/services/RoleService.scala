@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service
 
 import scala.compat.java8.OptionConverters._
 
-@Service("core.users.PermissionService")
+@Service("core.users.RoleService")
 class RoleService @Inject()
 (
     roleRepository: RoleRepository

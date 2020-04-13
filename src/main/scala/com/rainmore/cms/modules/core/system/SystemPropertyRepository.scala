@@ -7,12 +7,13 @@ import com.rainmore.cms.modules.core.jpa.{BaseQuerydslRepositorySupportImpl, Bas
 import org.springframework.stereotype.Repository
 
 @Repository
-trait SystemPropertyRepository extends BaseRepository[SystemProperty, JString, QSystemProperty]
+trait SystemPropertyRepository
+    extends BaseRepository[SystemProperty, JString, QSystemProperty]
     with SystemPropertyRepositoryCustom
 
 trait SystemPropertyRepositoryCustom
 
-class AccountRepositoryImpl
+class SystemPropertyRepositoryImpl
     extends BaseQuerydslRepositorySupportImpl[SystemProperty, JString, QSystemProperty](classOf[SystemProperty], QSystemProperty.systemProperty)
         with SystemPropertyRepositoryCustom
 

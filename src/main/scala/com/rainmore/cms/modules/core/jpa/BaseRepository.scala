@@ -9,5 +9,5 @@ import org.springframework.data.repository.NoRepositoryBean
 @NoRepositoryBean
 trait BaseRepository[T <: HasId[ID], ID <: java.io.Serializable, Q <: EntityPathBase[T]]
     extends JpaRepository[T, ID]
-        with QuerydslPredicateExecutor[T, ID]
+        with QuerydslPredicateExecutor[T]
         with BaseQuerydslRepositorySupport[T, ID, Q]
