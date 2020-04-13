@@ -1,5 +1,6 @@
 package com.rainmore.cms.domains.core.users
 
+import com.rainmore.cms.domains.Nameable
 import com.rainmore.cms.domains.core.ArchivableAuditableDomain
 import java.time.LocalDateTime
 import java.util.HashSet
@@ -48,6 +49,6 @@ data class Account
     var permissions: Set<Permission> = HashSet()
 
     @Transient
-    fun name(): String = String.format("%s %s", firstName, lastName)
+    override val name: String? = String.format("%s %s", firstName, lastName)
 
 }

@@ -218,3 +218,25 @@ create table userForgetPasswordRequests
 
 create index createdAt
 	on userForgetPasswordRequests (createdAt);
+
+
+create table systemProperties
+(
+	name varchar(256) not null primary key,
+	data text not null
+);
+
+
+INSERT INTO systemProperties VALUES
+('rainmore.cms.author.name','\"rainmore\"'),
+('rainmore.cms.author.url','\"https://rainmore.com.au\"'),
+('rainmore.cms.document.url','null'),
+('rainmore.cms.mail.from.email','null'),
+('rainmore.cms.mail.replyTo.email','null'),
+('rainmore.cms.mail.smtp.host ','null'),
+('rainmore.cms.mail.smtp.password ','null'),
+('rainmore.cms.mail.smtp.port ','null'),
+('rainmore.cms.mail.smtp.username ','null'),
+('rainmore.cms.name','\"Rainmore CMS\"'),
+('rainmore.cms.release','\"1.0\"');
+

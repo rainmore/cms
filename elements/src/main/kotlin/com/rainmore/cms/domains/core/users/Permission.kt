@@ -1,5 +1,6 @@
 package com.rainmore.cms.domains.core.users
 
+import com.rainmore.cms.domains.Nameable
 import com.rainmore.cms.domains.core.ArchivableAuditableDomain
 import javax.persistence.*
 
@@ -12,8 +13,8 @@ data class Permission
         var id: Long? = null,
 
         @Column(nullable = false)
-        var name: String? = null
-) : ArchivableAuditableDomain<Permission>() {
+        override var name: String? = null
+) : ArchivableAuditableDomain<Permission>(), Nameable {
 
     @ManyToOne
     @JoinColumn(name = "parentId")
