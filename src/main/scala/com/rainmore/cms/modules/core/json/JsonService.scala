@@ -1,14 +1,14 @@
-package com.rainmore.cms.configs.json
+package com.rainmore.cms.modules.core.json
 
 import java.io.IOException
 import java.nio.charset.StandardCharsets
-import javax.inject.Inject
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.springframework.stereotype.Component
+import javax.inject.Inject
+import org.springframework.stereotype.Service
 
-@Component
-class JsonUtils @Inject()
+@Service
+class JsonService @Inject()
 (
     objectMapper: ObjectMapper
 ) {

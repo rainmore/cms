@@ -1,6 +1,7 @@
 package com.rainmore.cms.domains.core.users
 
 import com.rainmore.cms.domains.Domain
+import com.rainmore.cms.domains.HasId
 import java.time.LocalDateTime
 import javax.persistence.*
 
@@ -10,7 +11,7 @@ data class LoginToken
 (
         @Id
         @Column(name = "series", nullable = false)
-        var id: String? = null,
+        override var id: String? = null,
 
         @Column(name = "token", nullable = false)
         var token: String? = null,
@@ -21,6 +22,6 @@ data class LoginToken
 
         @Column(name = "lastUsedAt", nullable = false)
         var lastUsedAt: LocalDateTime? = null
-) : Domain {
+) : Domain, HasId<String> {
 
 }

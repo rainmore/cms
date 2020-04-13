@@ -1,5 +1,6 @@
 package com.rainmore.cms.domains.core.users
 
+import com.rainmore.cms.domains.HasId
 import com.rainmore.cms.domains.Nameable
 import com.rainmore.cms.domains.core.ArchivableAuditableDomain
 import java.time.LocalDateTime
@@ -13,7 +14,7 @@ data class Account
         @Id
         @Column(name = "id", nullable = false)
         @GeneratedValue(strategy = GenerationType.AUTO)
-        var id: Long? = null,
+        override var id: Long? = null,
 
         @Column(name = "firstname")
         var firstName: String? = null,
@@ -31,7 +32,7 @@ data class Account
         @Enumerated(value = EnumType.STRING)
         var status: Status = Status.SUSPENDED
 
-) : ArchivableAuditableDomain<Account>(), Nameable {
+) : ArchivableAuditableDomain<Account>(), Nameable, HasId<Long> {
 
     @Column(name = "lastLoginAt")
     var lastLoginAt: LocalDateTime? = null

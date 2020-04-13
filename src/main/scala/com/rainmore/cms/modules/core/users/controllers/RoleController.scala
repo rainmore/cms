@@ -1,6 +1,6 @@
 package com.rainmore.cms.modules.core.users.controllers
 
-import com.rainmore.cms.models.core.users.Role
+import com.rainmore.cms.domains.core.users.Role
 import com.rainmore.cms.modules.core.users.services.RoleRepository
 import javax.inject.Inject
 import org.springframework.data.domain.{Page, Pageable}

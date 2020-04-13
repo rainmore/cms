@@ -1,6 +1,7 @@
 package com.rainmore.cms.domains.core.users
 
 import com.rainmore.cms.domains.Domain
+import com.rainmore.cms.domains.HasId
 import org.hibernate.annotations.Type
 import java.time.LocalDateTime
 import java.util.*
@@ -14,12 +15,12 @@ data class ForgetPasswordRequest
         @Id
         @Column(name = "id", unique = true, nullable = false, updatable = false, length = 36)
         @Type(type = "uuid-char")
-        var id: UUID? = null,
+        override var id: UUID? = null,
 
         @Column(nullable = false, updatable = false)
         @NotNull
         var createdAt: LocalDateTime = LocalDateTime.now().withNano(0)
-) : Domain {
+) : Domain, HasId<UUID> {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userAccountId", nullable = false, updatable = false)
