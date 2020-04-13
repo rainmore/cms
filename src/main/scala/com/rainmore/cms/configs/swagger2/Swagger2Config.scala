@@ -1,12 +1,7 @@
 package com.rainmore.cms.configs.swagger2
 
-import com.rainmore.cms.modules.BaseModule
+import com.rainmore.cms.modules.core.jpa.BaseModule
 import org.springframework.context.annotation.Configuration
-import springfox.documentation.builders.{PathSelectors, RequestHandlerSelectors}
-import springfox.documentation.service.{ApiInfo, Contact}
-import springfox.documentation.spi.DocumentationType
-import springfox.documentation.spring.web.plugins.Docket
-import springfox.documentation.swagger2.annotations.EnableSwagger2
 
 import scala.jdk.CollectionConverters._
 

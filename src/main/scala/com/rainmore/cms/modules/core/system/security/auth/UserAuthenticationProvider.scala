@@ -1,4 +1,4 @@
-package com.rainmore.cms.modules.core.security.auth
+package com.rainmore.cms.modules.core.system.security.auth
 
 import com.rainmore.cms.modules.core.users.services.AccountService
 import org.apache.commons.lang3.StringUtils

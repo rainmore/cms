@@ -1,10 +1,12 @@
-package com.rainmore.cms.modules.core.security.auth
+package com.rainmore.cms.modules.core.system.security.auth
 
 import java.lang.{String => JString}
+import java.time.Duration
 import java.util
 
 import com.rainmore.cms.domains.core.users.Account
-import com.rainmore.cms.modules.core.security.auth.CurrentUser.GrantedAuthorityImpl
+import com.rainmore.cms.modules.core.system.SystemPropertyService
+import com.rainmore.cms.modules.core.system.security.auth.CurrentUser.GrantedAuthorityImpl
 import com.rainmore.cms.modules.core.users.services.{AccountService, PermissionService, RoleService}
 import javax.inject.Inject
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -20,7 +22,8 @@ class UserDetailsService @Inject()
 (
     accountService: AccountService,
     roleService: RoleService,
-    permissionService: PermissionService
+    permissionService: PermissionService,
+    systemPropertyService: SystemPropertyService
 ) extends org.springframework.security.core.userdetails.UserDetailsService {
 
     override def loadUserByUsername(username: JString): UserDetails = {
@@ -64,5 +67,9 @@ class UserDetailsService @Inject()
             currentUser.getAuthorities)
 
         SecurityContextHolder.getContext.setAuthentication(authentication)
+    }
+
+    def getRememberMeDurationInSeconds: Int = {
+        systemPropertyService.getData[Int]("rainmore.cms.core.system.security.rememberMe.duration", classOf[Int])
     }
 }

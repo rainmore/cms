@@ -1,4 +1,4 @@
-package com.rainmore.cms.modules.core.security.auth
+package com.rainmore.cms.modules.core.system.security.auth
 
 import java.lang.{String => JString}
 import com.rainmore.cms.domains.core.users.{LoginToken, QLoginToken}

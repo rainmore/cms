@@ -228,7 +228,8 @@ create table systemProperties
 
 
 INSERT INTO systemProperties VALUES
-('rainmore.cms.author.name','\"rainmore\"'),
+('rainmore.cms.author.name','\"Felix Jie Rong\"'),
+('rainmore.cms.author.email','\"rainmore24@gmail.com\"'),
 ('rainmore.cms.author.url','\"https://rainmore.com.au\"'),
 ('rainmore.cms.document.url','null'),
 ('rainmore.cms.mail.from.email','null'),
@@ -238,5 +239,6 @@ INSERT INTO systemProperties VALUES
 ('rainmore.cms.mail.smtp.port ','null'),
 ('rainmore.cms.mail.smtp.username ','null'),
 ('rainmore.cms.name','\"Rainmore CMS\"'),
-('rainmore.cms.release','\"1.0\"');
+('rainmore.cms.release','\"1.0\"'),
+('rainmore.cms.core.system.security.rememberMe.duration','1209600');
 

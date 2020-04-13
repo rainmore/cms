@@ -1,4 +1,4 @@
-package com.rainmore.cms.configs.apis
+package com.rainmore.cms.configs.web
 
 import java.lang.{String => JString}
 
