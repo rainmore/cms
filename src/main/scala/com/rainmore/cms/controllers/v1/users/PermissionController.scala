@@ -1,6 +1,6 @@
-package com.rainmore.cms.modules.core.users.controllers
+package com.rainmore.cms.controllers.v1.users
 
-import com.rainmore.cms.domains.core.users.Permission
+import com.rainmore.cms.controllers.v1.users.dto.PermissionDto
 import com.rainmore.cms.modules.core.users.services.PermissionRepository
 import javax.inject.Inject
 import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, RestController => SpringRestController}
@@ -8,15 +8,16 @@ import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, Rest
 import scala.jdk.CollectionConverters._
 
 @SpringRestController("core.users.controllers.PermissionController")
-@RequestMapping(Array("/api/users/permissions"))
+@RequestMapping(Array("/api/v1/users/permissions"))
 class PermissionController @Inject()
 (
     permissionRepository: PermissionRepository
 ) {
 
     @GetMapping
-    def list: Iterable[Permission] = {
-        permissionRepository.findAll().asScala
+    def list: Iterable[PermissionDto] = {
+        val data = permissionRepository.findAll().asScala
+        data.map(PermissionDto(_))
     }
 
 }

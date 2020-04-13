@@ -1,4 +1,4 @@
-package com.rainmore.cms.modules.core.users.controllers.dto
+package com.rainmore.cms.controllers.v1.users.dto
 
 import com.rainmore.cms.domains.core.users.Role
 

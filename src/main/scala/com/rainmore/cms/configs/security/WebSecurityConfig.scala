@@ -67,7 +67,7 @@ class WebSecurityConfig @Inject()
             .and()
             .exceptionHandling().accessDeniedPage("/403")
             .and()
-            .csrf()
+            .csrf().disable()
         ;
     }
 
