@@ -2,7 +2,7 @@ apply plugin: 'com.moowork.node'
 
 node {
     // Version of node to use.
-    version = '10.19.0'
+    version = '10.20.1'
 
     // Version of npm to use.
     npmVersion = '6.14.4'
@@ -11,28 +11,33 @@ node {
 description = 'UI webapp'
 group = 'com.rainmore.webapp'
 
-task buildDev(type: NpmTask) {
+task build(type: NpmTask) {
+    group "build"
     dependsOn npm_install
     args = ['run', 'build']
 }
 
 task clean(type: NpmTask) {
+    group "build"
     args = ['run', 'clean',]
 }
 
-task watch(type: NpmTask) {
+task buildWatch(type: NpmTask) {
+    group "build"
     dependsOn npm_install
-    args = ['run', 'build', '--', '--watch']
+    args = ['run', 'build', '--', '--configuration', 'watch', '--watch']
 
 }
 
-task build(type: NpmTask) {
+task buildProd(type: NpmTask) {
+    group "build"
     dependsOn npm_install
     args = ['run', 'build', '--', '--prod']
 }
 
 task bootRun {
-    dependsOn watch
+    group "application"
+    dependsOn buildWatch
 }
 
 
