@@ -19,7 +19,7 @@ task build(type: NpmTask) {
 
 task clean(type: NpmTask) {
     group "build"
-    args = ['run', 'clean',]
+    args = ['run', 'clean']
 }
 
 task buildWatch(type: NpmTask) {
