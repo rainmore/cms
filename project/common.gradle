@@ -1,4 +1,6 @@
 dependencies {
+    implementation group: 'com.typesafe', name: 'config', version: project.ext.get('typesafe.config.version')
+
 //    implementation group: 'com.google.guava',   name: 'guava',             version: project.ext.get('google.guava.version')
     implementation group: 'org.apache.commons', name: 'commons-lang3',     version: project.ext.get('apache.commons.lang.version')
     implementation group: 'org.apache.commons', name: 'commons-email',     version: project.ext.get('apache.commons.email.version')

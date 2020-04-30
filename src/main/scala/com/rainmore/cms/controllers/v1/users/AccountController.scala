@@ -7,7 +7,7 @@ import javax.inject.Inject
 import org.springframework.data.domain.{Page, Pageable}
 import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, RestController => SpringRestController}
 
-@SpringRestController("core.users.controllers.AccountController")
+@SpringRestController("v1.users.AccountController")
 @RequestMapping(Array("/api/v1/users/accounts"))
 class AccountController @Inject()
 (

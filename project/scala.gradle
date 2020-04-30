@@ -6,7 +6,7 @@ ext.sclArt = { String artifactId ->
 
 dependencies {
     implementation group: 'org.scala-lang', name: 'scala-library', version: project.ext.get('scala.version')
-    implementation group: 'org.scala-lang.modules', name: 'scala-java8-compat_' + project.ext.get('scala.branch'), version: project.ext.get('scala.modules.java8-compat.version')
+    implementation group: 'org.scala-lang.modules', name: project.ext.sclArt('scala-java8-compat'), version: project.ext.get('scala.modules.java8-compat.version')
 }
 
 tasks.withType(ScalaCompile) {

@@ -1,5 +1,6 @@
 package com.rainmore.cms.modules.core.data
 
+import java.io.Serializable
 import com.rainmore.cms.domains.Domain
 import org.springframework.core.convert.converter.Converter
 import org.springframework.data.domain.Page

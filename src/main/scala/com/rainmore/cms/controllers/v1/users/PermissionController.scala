@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, Rest
 
 import scala.jdk.CollectionConverters._
 
-@SpringRestController("core.users.controllers.PermissionController")
+@SpringRestController("v1.users.PermissionController")
 @RequestMapping(Array("/api/v1/users/permissions"))
 class PermissionController @Inject()
 (
