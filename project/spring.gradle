@@ -17,6 +17,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-logging')
 
     implementation group: 'org.springframework.integration', name: 'spring-integration-mail', version: '5.2.4.RELEASE'
+    implementation group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.2.6.RELEASE'
 
     runtime('org.springframework.boot:spring-boot-devtools')
 
