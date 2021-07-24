@@ -3,12 +3,12 @@ ext.isReleaseSnapshotVersion = { version ->
 }
 
 ext.getVcsVersion = {
-    return ext.grgit.describe()
+    return grgit.describe(always: true, tags: true)
 }
 
 ext.composeReleaseVersion = {
-    def branchName = ext.grgit.branch.current().name
-    def currentVersion = ext.grgit.describe()
+    def branchName = grgit.branch.current().name
+    def currentVersion = ext.getVcsVersion()
 
     if (branchName == 'master') {
         return project.version
@@ -23,14 +23,14 @@ ext.composeReleaseVersion = {
 
 ext.doTagVersion = {
 
-    def v = composeReleaseVersion()
+    def v = composeReleaseVersion
 
 
-    if (ext.grgit.tag.list().any {it.fullName.endsWith(v)}) {
+    if (grgit.tag.list().any {it.fullName.endsWith(v)}) {
         throw new IllegalArgumentException("Error: tag exists '$v'")
     }
 
-    ext.grgit.tag.add {
+    grgit.tag.add {
         name = v
         force = true
         message = "Release of v${v}"
