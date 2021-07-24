@@ -17,8 +17,9 @@ dist
 /.settings
 /.gradle
 /build
-/gradle
-/gradlew*
+/gradle/wrapper/
+/gradlew
+/gradlew.bat
 /db
 
 src/main/resources/static/
