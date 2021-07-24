@@ -9,7 +9,7 @@ object PageableUtils {
     val DefaultSize: Int = 40
 
     def orderBy(orders: OrderSpecifier[_ <: Comparable[_]]*)(pageable: Pageable): Pageable = {
-        new QPageRequest(pageable.getPageNumber, pageable.getPageSize, orders: _*)
+        QPageRequest.of(pageable.getPageNumber, pageable.getPageSize, orders: _*)
     }
 
 }
