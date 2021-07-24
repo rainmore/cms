@@ -6,7 +6,7 @@ create table if not exists userAccounts
 	email varchar(150) not null,
 	firstName varchar(150) null,
 	lastName varchar(150) null,
-	status enum('ACTIVE', 'SUSPENDED', 'DISABLED') not null,
+	status enum('ACTIVE', 'SUSPENDED') not null,
 	lastLoginAt datetime null,
 	createdAt datetime not null,
 	createdBy bigint unsigned not null,

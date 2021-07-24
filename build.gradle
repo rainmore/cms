@@ -1,11 +1,5 @@
 plugins {
     id 'org.springframework.boot'
-
-    id 'org.jetbrains.kotlin.plugin.spring'          apply false
-    id 'org.jetbrains.kotlin.plugin.jpa'             apply false
-    id 'org.jetbrains.kotlin.plugin.noarg'           apply false
-    id 'org.jetbrains.kotlin.plugin.allopen'         apply false
-    id 'org.jetbrains.kotlin.kapt'                   apply false
     id 'com.github.hauner.jarTest'                   apply false
     id 'com.bmuschko.docker-spring-boot-application' apply false
     id 'com.github.node-gradle.node'                 apply false
@@ -18,6 +12,8 @@ plugins {
 description = 'Content Manage System'
 group = 'com.rainmore'
 version '2.0.0'
+
+defaultTasks 'clean'
 
 application {
     mainClass.set([group, 'Application'].join('.'))
