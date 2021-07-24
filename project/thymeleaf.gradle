@@ -1,8 +1,4 @@
 dependencies {
-    implementation group: 'org.thymeleaf',                    name: 'thymeleaf',                            version: project.ext.get('thymeleaf.version')
-    implementation group: 'org.thymeleaf',                    name: 'thymeleaf-spring5',                    version: project.ext.get('thymeleaf.version')
-    implementation group: 'org.thymeleaf.extras',             name: 'thymeleaf-extras-springsecurity5',     version: project.ext.get('thymeleaf.extra.version')
-    implementation group: 'org.thymeleaf.extras',             name: 'thymeleaf-extras-java8time',           version: project.ext.get('thymeleaf.extra.version')
-    implementation group: 'nz.net.ultraq.thymeleaf',          name: 'thymeleaf-layout-dialect',             version: project.ext.get('thymeleaf.layout.version')
+    implementation libs.bundles.thymeleaf
 }
 

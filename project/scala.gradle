@@ -1,12 +1,7 @@
 apply plugin: 'scala'
 
-ext.sclArt = { String artifactId ->
-    sprintf('%s_%s', artifactId, project.ext.get('scala.branch'))
-}
-
 dependencies {
-    implementation group: 'org.scala-lang', name: 'scala-library', version: project.ext.get('scala.version')
-    implementation group: 'org.scala-lang.modules', name: project.ext.sclArt('scala-java8-compat'), version: project.ext.get('scala.modules.java8-compat.version')
+    implementation libs.bundles.scala
 }
 
 tasks.withType(ScalaCompile) {
@@ -30,9 +25,3 @@ tasks.withType(ScalaCompile) {
         scalaCompileOptions.additionalParameters += System.env.ZINC_OPTS.tokenize(' ')
     }
 }
-
-// Java/Scala cross-compilation
-//sourceSets.main.scala.srcDirs += sourceSets.main.java.srcDirs
-//sourceSets.main.java.srcDirs = []
-
-//tasks.javadocJar.from scaladoc

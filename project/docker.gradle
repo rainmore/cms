@@ -6,28 +6,32 @@ def composeImageName(String namespace, String name, String tag) {
 }
 
 docker {
-//    url = (isCi) ? project.teamcity['docker.engine.url'] : project.ext.get('docker.engine.url')
 
-    url = project.ext.get('docker.default.engine.url')
-    certPath = new File(project.ext.get('docker.default.cert.path'))
+    if (project.hasProperty('docker.edi.engine.url')) {
+        url = project.ext.get('docker.edi.engine.url')
+    }
+
+    if (project.hasProperty('docker.edi.cert.path')) {
+        certPath = new File(project.ext.get('docker.edi.cert.path'))
+    }
 
     registryCredentials {
-        username = project.ext.get('docker.default.publish.credentials.username')
-        password = project.ext.get('docker.default.publish.credentials.password')
+        username = project.ext.get('docker.edi.publish.credentials.username')
+        password = project.ext.get('docker.edi.publish.credentials.password')
     }
 
     springBootApplication {
-        baseImage = project.ext.get('docker.default.baseImage')
+        baseImage = project.ext.get('docker.edi.baseImage')
         ports = [8080]
-        tag = composeImageName(
-                project.ext.get('docker.default.image.namespace'),
-                project.ext.get('docker.default.image.name'),
-                rootProject.name + '-' + composeReleaseVersion())
+        images = [composeImageName(
+                project.ext.get('docker.edi.image.namespace'),
+                project.ext.get('docker.edi.image.name'),
+                rootProject.name + '-' + composeReleaseVersion())]
     }
 }
 
 dockerCreateDockerfile {
-    label(['vendor': project.ext.get('docker.default.image.label.vendor')])
+    label(['vendor': project.ext.get('docker.edi.image.label.vendor')])
 }
 
 task upload {

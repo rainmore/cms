@@ -1,6 +1,6 @@
 task tagVersion {
-    group "release"
-    description = "Tags the current head with the project\"s version."
+    group 'release'
+    description = 'Tags the current head with the project\'s version.'
 
     doLast {
         doTagVersion()

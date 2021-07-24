@@ -1,4 +1,6 @@
 dependencies {
-    runtime group: 'mysql',       name: 'mysql-connector-java',        version: project.ext.get('mysql.version')
-    implementation group: 'com.zaxxer',  name: 'HikariCP',             version: project.ext.get('hikaricp.version')
+    runtimeOnly libs.mysql.connector
+    implementation libs.hikaricp
+    implementation libs.bundles.jpa.hibernate
+
 }

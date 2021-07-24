@@ -1,7 +1,7 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 ext.javaLintArgs = [
         '-Xlint:all',
@@ -18,10 +18,20 @@ ext.sharedManifest = manifest {
             'Built-By':               System.getProperty('user.name'),
             'Built-Date':             new Date()
     )
+
+    if (pluginManager.hasPlugin('application') && application.mainClass.isPresent()) {
+        attributes 'Main-Class': application.mainClass.get()
+    }
 }
 
 jar {
     manifest = project.manifest { from sharedManifest }
+
+    /* Without a duplicate strategy, the task fails with the following error:
+     * Entry com/worldmanager/donkey/domain/Comment.class is a duplicate but no duplicate handling strategy has been set.
+     * We could not find out why.
+     */
+    setDuplicatesStrategy(DuplicatesStrategy.INCLUDE)
 }
 
 tasks.withType(JavaCompile) {
