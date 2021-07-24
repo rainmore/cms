@@ -48,7 +48,7 @@ class AccountService @Inject()
     def encodePassword(password: String): String = passwordEncoder.encode(password)
 
 
-    def findSystemAccount(): Account = accountRepository.getOne(AccountService.SystemAccountId)
+    def findSystemAccount(): Account = accountRepository.findById(AccountService.SystemAccountId).get()
 
     def findOne(email: String): Option[Account] = {
         val criteria = getSpecification.isActualCondition.and(getSpecification.emailCondition(email))
