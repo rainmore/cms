@@ -6,7 +6,6 @@ def composeImageName(String namespace, String name, String tag) {
 }
 
 docker {
-//    url = (isCi) ? project.teamcity['docker.engine.url'] : project.ext.get('docker.engine.url')
 
     url = project.ext.get('docker.default.engine.url')
     certPath = new File(project.ext.get('docker.default.cert.path'))
@@ -18,11 +17,12 @@ docker {
 
     springBootApplication {
         baseImage = project.ext.get('docker.default.baseImage')
+        mainClassName = application.mainClass.get()
         ports = [8080]
-        tag = composeImageName(
+        images = [composeImageName(
                 project.ext.get('docker.default.image.namespace'),
                 project.ext.get('docker.default.image.name'),
-                rootProject.name + '-' + composeReleaseVersion())
+                rootProject.name + '-' + composeReleaseVersion())]
     }
 }
 
@@ -30,12 +30,12 @@ dockerCreateDockerfile {
     label(['vendor': project.ext.get('docker.default.image.label.vendor')])
 }
 
-task upload {
+tasks.register('upload') {
     group 'Publish'
     dependsOn dockerPushImage
 }
 
-task release {
+tasks.register('release') {
     group 'Publish'
     dependsOn dockerPushImage
 }

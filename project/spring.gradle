@@ -1,12 +1,13 @@
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-
 configurations {
     implementation.exclude module: "spring-boot-starter-tomcat"
 }
 
 dependencies {
+    runtimeOnly libs.javax.servlet.api
+
     implementation('org.springframework.boot:spring-boot-autoconfigure')
     implementation('org.springframework.boot:spring-boot-starter-data-rest')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -16,26 +17,20 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-jetty')
     implementation('org.springframework.boot:spring-boot-starter-logging')
 
-    implementation group: 'org.springframework.integration', name: 'spring-integration-mail', version: '5.2.4.RELEASE'
-    implementation group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.2.6.RELEASE'
+    implementation libs.spring.integration.mail
 
-    runtime('org.springframework.boot:spring-boot-devtools')
+    runtimeOnly('org.springframework.boot:spring-boot-devtools')
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
+
 // debug
 bootRun {
     shouldRunAfter clean, processResources
-    jvmArgs += "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+    jvmArgs += "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
 
-    environment.SPRING_PROFILES_ACTIVE = 'dev'
-}
-
-jar {
-    enabled = true
-}
-
-bootJar {
-    classifier = 'boot'
+    if (System.env.WYTN_ENV) {
+        environment.SPRING_PROFILES_ACTIVE = System.env.WYTN_ENV
+    }
 }
