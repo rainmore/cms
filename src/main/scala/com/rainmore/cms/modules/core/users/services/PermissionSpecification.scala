@@ -1,10 +1,10 @@
 package com.rainmore.cms.modules.core.users.services
 
 import java.lang.{Long => JLong}
-
 import com.querydsl.core.types.OrderSpecifier
 import com.querydsl.core.types.dsl.BooleanExpression
-import com.rainmore.cms.domains.core.users.{Permission, QAccount, QPermission, QRole}
+import com.rainmore.cms.domains.users.{Permission, QAccount, QPermission, QRole}
+import com.rainmore.cms.domains.users.{Permission, QAccount, QPermission, QRole}
 import com.rainmore.cms.modules.core.jpa.{BaseSpecification, CollectionJoinPathDescriptor}
 
 import scala.jdk.CollectionConverters._

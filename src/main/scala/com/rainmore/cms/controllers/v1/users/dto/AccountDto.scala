@@ -1,6 +1,6 @@
 package com.rainmore.cms.controllers.v1.users.dto
 
-import com.rainmore.cms.domains.core.users.{Account, Status}
+import com.rainmore.cms.domains.users.{Account, AccountStatus}
 
 object AccountDto {
     def apply(account: Account): AccountDto = {
@@ -20,7 +20,7 @@ case class AccountDto
     firstName: String,
     lastName: String,
     email: String,
-    status: Status
+    status: AccountStatus
 ) {
     def getName: String = "%s %s".format(firstName, lastName).trim
 }

@@ -1,8 +1,8 @@
 package com.rainmore.cms.modules.core.users.services
 
-import java.lang.{Long => JLong}
+import com.rainmore.cms.domains.users.{Account, QAccount}
 
-import com.rainmore.cms.domains.core.users.{Account, QAccount}
+import java.lang.{Long => JLong}
 import com.rainmore.cms.modules.core.jpa.{BaseQuerydslRepositorySupportImpl, BaseRepository}
 import org.springframework.stereotype.Repository
 

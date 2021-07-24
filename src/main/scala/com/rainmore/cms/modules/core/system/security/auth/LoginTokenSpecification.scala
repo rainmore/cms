@@ -1,7 +1,8 @@
 package com.rainmore.cms.modules.core.system.security.auth
 
 import com.querydsl.core.types.dsl.BooleanExpression
-import com.rainmore.cms.domains.core.users.{Account, QLoginToken}
+import com.rainmore.cms.domains.system.security.auth.QLoginToken
+import com.rainmore.cms.domains.users.Account
 
 object LoginTokenSpecification {
 

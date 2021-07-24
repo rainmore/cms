@@ -1,6 +1,6 @@
 package com.rainmore.cms.controllers.v1.users.dto
 
-import com.rainmore.cms.domains.core.users.Role
+import com.rainmore.cms.domains.users.Role
 import org.springframework.core.convert.converter.Converter
 
 class RoleToRoleDtoConverter extends Converter[Role, RoleDto] {

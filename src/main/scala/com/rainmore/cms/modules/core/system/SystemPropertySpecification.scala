@@ -1,7 +1,7 @@
 package com.rainmore.cms.modules.core.system
 
 import com.querydsl.core.types.dsl.BooleanExpression
-import com.rainmore.cms.domains.core.system.security.QSystemProperty
+import com.rainmore.cms.domains.system.QSystemProperty
 
 object SystemPropertySpecification {
 

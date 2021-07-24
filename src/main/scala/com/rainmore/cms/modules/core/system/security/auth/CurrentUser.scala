@@ -2,7 +2,7 @@ package com.rainmore.cms.modules.core.system.security.auth
 
 import java.util
 
-import com.rainmore.cms.domains.core.users.{Account, Permission, Role}
+import com.rainmore.cms.domains.users.{Account, Permission, Role}
 import com.rainmore.cms.modules.core.system.security.auth.CurrentUser.GrantedAuthorityImpl
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails

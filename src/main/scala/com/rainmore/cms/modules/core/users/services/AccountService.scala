@@ -1,10 +1,11 @@
 package com.rainmore.cms.modules.core.users.services
 
+import com.rainmore.cms.domains.users.{Account, QAccount, Role}
+
 import java.lang.{Long => JLong}
 import java.time.LocalDateTime
-
-import com.rainmore.cms.domains.core.users.{Account, QAccount, Role}
 import com.rainmore.cms.modules.core.jpa.BaseDataService
+
 import javax.inject.Inject
 import javax.transaction.Transactional
 import org.springframework.data.domain.{Page, Pageable}
@@ -62,7 +63,7 @@ class AccountService @Inject()
 
     @Transactional
     override def save(account: Account, updatedBy: Account): Unit = {
-        account.update(updatedBy)
+        account.updateBy(updatedBy)
         accountRepository.save(account)
     }
 

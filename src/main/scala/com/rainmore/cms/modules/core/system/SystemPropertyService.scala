@@ -1,6 +1,6 @@
 package com.rainmore.cms.modules.core.system
 
-import com.rainmore.cms.domains.core.system.security.SystemProperty
+import com.rainmore.cms.domains.system.SystemProperty
 import com.rainmore.cms.modules.core.json.JsonService
 import javax.inject.Inject
 import org.springframework.stereotype.Service

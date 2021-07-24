@@ -3,11 +3,12 @@ package com.rainmore.cms.modules.core.system.security.auth
 import java.lang.{String => JString}
 import java.time.Duration
 import java.util
-
-import com.rainmore.cms.domains.core.users.Account
+import com.rainmore.cms.domains.users.Account
+import com.rainmore.cms.domains.users.Account
 import com.rainmore.cms.modules.core.system.SystemPropertyService
 import com.rainmore.cms.modules.core.system.security.auth.CurrentUser.GrantedAuthorityImpl
 import com.rainmore.cms.modules.core.users.services.{AccountService, PermissionService, RoleService}
+
 import javax.inject.Inject
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.GrantedAuthority
