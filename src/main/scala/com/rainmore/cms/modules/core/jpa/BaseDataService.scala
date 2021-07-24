@@ -3,7 +3,9 @@ package com.rainmore.cms.modules.core.jpa
 import com.querydsl.core.types.OrderSpecifier
 import com.querydsl.core.types.dsl.{BooleanExpression, EntityPathBase}
 import com.rainmore.cms.domains.HasId
-import com.rainmore.cms.domains.core.users.Account
+import com.rainmore.cms.domains.users.Account
+import com.rainmore.cms.domains.users.Account
+
 import javax.transaction.Transactional
 import org.springframework.data.domain.{Page, Pageable}
 

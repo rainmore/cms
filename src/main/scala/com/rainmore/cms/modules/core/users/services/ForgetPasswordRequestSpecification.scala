@@ -1,9 +1,8 @@
 package com.rainmore.cms.modules.core.users.services
 
 import java.time.{LocalDateTime, Period}
-
 import com.querydsl.core.types.dsl.BooleanExpression
-import com.rainmore.cms.domains.core.users.QForgetPasswordRequest
+import com.rainmore.cms.domains.system.security.auth.QForgetPasswordRequest
 
 object ForgetPasswordRequestSpecification {
 

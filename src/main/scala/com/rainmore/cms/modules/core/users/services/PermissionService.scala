@@ -1,9 +1,9 @@
 package com.rainmore.cms.modules.core.users.services
 
 import java.lang.{Long => JLong}
-
-import com.rainmore.cms.domains.core.users.{Account, Permission, QPermission, Role}
+import com.rainmore.cms.domains.users.{Account, Permission, QPermission, Role}
 import com.rainmore.cms.modules.core.jpa.BaseDataService
+
 import javax.inject.Inject
 import javax.transaction.Transactional
 import org.springframework.data.domain.{Page, Pageable}
@@ -39,7 +39,7 @@ class PermissionService @Inject()
 
     @Transactional
     def save(permission: Permission, updatedBy: Account): Unit = {
-        permission.update(updatedBy)
+        permission.updateBy(updatedBy)
         getRepository.save(permission)
     }
 

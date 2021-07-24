@@ -1,9 +1,10 @@
 package com.rainmore.cms.modules.core.users.services
 
-import java.lang.{Long => JLong}
+import com.rainmore.cms.domains.users.{Account, QRole, Role}
 
-import com.rainmore.cms.domains.core.users.{Account, QRole, Role}
+import java.lang.{Long => JLong}
 import com.rainmore.cms.modules.core.jpa.BaseDataService
+
 import javax.inject.Inject
 import javax.transaction.Transactional
 import org.springframework.data.domain.{Page, Pageable}
@@ -47,7 +48,7 @@ class RoleService @Inject()
 
     @Transactional
     override def save(role: Role, updatedBy: Account): Unit = {
-        role.update(updatedBy)
+        role.updateBy(updatedBy)
         roleRepository.save(role)
     }
 

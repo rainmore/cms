@@ -1,8 +1,8 @@
 package com.rainmore.cms.modules.core.users.services
 
-import java.util.UUID
+import com.rainmore.cms.domains.system.security.auth.{ForgetPasswordRequest, QForgetPasswordRequest}
 
-import com.rainmore.cms.domains.core.users.{ForgetPasswordRequest, QForgetPasswordRequest}
+import java.util.UUID
 import com.rainmore.cms.modules.core.jpa.{BaseQuerydslRepositorySupportImpl, BaseRepository}
 import org.springframework.stereotype.Repository
 

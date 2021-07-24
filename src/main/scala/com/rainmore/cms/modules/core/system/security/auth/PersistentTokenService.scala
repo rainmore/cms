@@ -1,10 +1,12 @@
 package com.rainmore.cms.modules.core.system.security.auth
 
-import java.util.Date
+import com.rainmore.cms.domains.system.security.auth.LoginToken
 
-import com.rainmore.cms.domains.core.users.{Account, LoginToken}
+import java.util.Date
+import com.rainmore.cms.domains.users.Account
 import com.rainmore.cms.modules.core.users.services.AccountService
 import com.rainmore.cms.utils.TimeUtils
+
 import javax.inject.Inject
 import javax.persistence.EntityNotFoundException
 import javax.transaction.Transactional

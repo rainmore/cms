@@ -2,10 +2,10 @@ package com.rainmore.cms.modules.core.users.services
 
 
 import java.lang.{Long => JLong}
-
 import com.querydsl.core.types.OrderSpecifier
 import com.querydsl.core.types.dsl.BooleanExpression
-import com.rainmore.cms.domains.core.users.{QAccount, QRole, Role}
+import com.rainmore.cms.domains.users.{QAccount, QRole, Role}
+import com.rainmore.cms.domains.users.{QAccount, QRole, Role}
 import com.rainmore.cms.modules.core.jpa.{BaseSpecification, CollectionJoinPathDescriptor}
 
 
@@ -34,8 +34,8 @@ class RoleSpecification extends BaseSpecification[Role, JLong, QRole](QRole.role
 
     def isAlmightyCondition(isAlmighty: Boolean): BooleanExpression = {
         require(Option(isAlmighty).isDefined)
-        if (isAlmighty) QRole.role.isAlmighty.eq(true)
-        else QRole.role.isAlmighty.eq(false)
+        if (isAlmighty) QRole.role.almighty.eq(true)
+        else QRole.role.almighty.eq(false)
     }
 
     def isRegularCondition: BooleanExpression = isAlmightyCondition(false)
