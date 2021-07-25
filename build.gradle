@@ -10,7 +10,7 @@ plugins {
 }
 
 description = 'Content Manage System'
-group = 'com.rainmore'
+group = 'com.rainmore.cms'
 version '2.0.0'
 
 defaultTasks 'clean'
