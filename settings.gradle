@@ -18,4 +18,4 @@ pluginManagement {
 enableFeaturePreview('VERSION_CATALOGS')
 
 rootProject.name = 'cms'
-include 'api-elements', 'api', 'ui', 'ui-new'
+include 'api-elements', 'api', 'ui'

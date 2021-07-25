@@ -11,32 +11,52 @@ node {
 description = 'UI webapp'
 group = 'com.rainmore.webapp'
 
-task build(type: NpmTask) {
+tasks.register('clean', Delete) {
     group "build"
-    dependsOn npm_install
+    delete 'dist'
+    followSymlinks = true
+}
+
+tasks.register('build', NpmTask) {
+    group "build"
+    dependsOn clean, npm_install
     args = ['run', 'build']
 }
 
-task clean(type: NpmTask) {
+tasks.register('watch', NpmTask) {
     group "build"
-    args = ['run', 'clean']
-}
-
-task buildWatch(type: NpmTask) {
-    group "build"
-    dependsOn npm_install
-    args = ['run', 'build', '--', '--configuration', 'watch', '--watch']
-}
-
-task buildProd(type: NpmTask) {
-    group "build"
-    dependsOn npm_install
-    args = ['run', 'build', '--', '--prod']
+    args = ['run', 'watch']
 }
 
 task bootRun {
     group "application"
-    dependsOn buildWatch
+    dependsOn clean, watch
 }
 
+tasks.register('ngUpdate', NpxTask) {
+    group "build"
+    dependsOn npmInstall
+    command = 'ng'
+    args = ['update']
+}
+
+tasks.register('ngHelp', NpxTask) {
+    group "build"
+    dependsOn npmInstall
+    command = 'ng'
+    args = ['help']
+}
+
+tasks.register('ngRun', NpxTask) {
+    group "application"
+    dependsOn npmInstall
+    command = 'ng'
+    args = ['serve', '--open']
+}
+
+tasks.register('ngBuild', NpxTask) {
+    dependsOn npmInstall
+    command = 'ng'
+    args = ['build', '--configuration', 'production']
+}
 
