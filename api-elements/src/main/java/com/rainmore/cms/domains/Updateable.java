@@ -22,7 +22,7 @@ public abstract class Updateable extends Createable {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "updatedBy", nullable = false)
     public Account getUpdatedBy() {
         return updatedBy;
     }

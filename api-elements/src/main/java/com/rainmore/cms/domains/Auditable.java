@@ -22,7 +22,7 @@ public abstract class Auditable extends Updateable {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
+    @JoinColumn(name = "archivedBy")
     public Account getArchivedBy() {
         return archivedBy;
     }

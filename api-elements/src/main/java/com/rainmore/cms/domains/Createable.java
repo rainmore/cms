@@ -24,7 +24,7 @@ abstract class Createable implements Domain {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, updatable = false)
+    @JoinColumn(name = "createdBy", nullable = false, updatable = false)
     @NotNull
     public Account getCreatedBy() {
         return createdBy;
