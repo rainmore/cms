@@ -69,3 +69,20 @@ tasks.register('ngBuild', NpxTask) {
     args = ['build', '--configuration', 'production']
 }
 
+/**
+ * ./gradlew ui:gc -Pn=lalal
+ */
+tasks.register('gc', NpxTask) {
+    group 'build'
+    command = 'ng'
+    args = ['generate', 'component', n, '--flat']
+}
+
+/**
+ * ./gradlew ui:gs -Pn=lalal
+ */
+tasks.register('gs', NpxTask) {
+    group 'build'
+    command = 'ng'
+    args = ['generate', 'service', n]
+}
