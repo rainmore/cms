@@ -20,17 +20,18 @@ node {
   download.set(true)
 }
 
-tasks.register<Delete>("clean") {
+tasks.register<Delete>("reset") {
   group = "build"
-  delete(
-    fileTree("dist")
-  )
+  dependsOn("clean")
+  setFollowSymlinks(true)
+  delete(".angular", "node_modules", ".gradle")
 }
 
-tasks.register<YarnTask>("setup") {
+tasks.register<Delete>("clean") {
   group = "build"
-  dependsOn("yarn_install")
-  yarnCommand.set(listOf("run", "build"))
+  setFollowSymlinks(true)
+  dependsOn("yarn_cache_clean")
+  delete("dist")
 }
 
 tasks.register<YarnTask>("watch") {
@@ -41,14 +42,13 @@ tasks.register<YarnTask>("watch") {
 
 tasks.register<YarnTask>("build") {
   group = "build"
-  dependsOn("clean")
-  dependsOn("yarn_cache_clean")
-  dependsOn("setup")
+  dependsOn( "yarn_install")
+  yarnCommand.set(listOf("run", "build"))
 }
 
 tasks.register<YarnTask>("update") {
   group = "build"
-  yarnCommand.set(listOf("ng", "update", "@angular/cli@1", "@angular/core@13"))
+  yarnCommand.set(listOf("ng", "update", "@angular/cli", "@angular/core"))
 }
 
 tasks.register<YarnTask>("run") {
