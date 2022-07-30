@@ -57,6 +57,15 @@ tasks.register<YarnTask>("run") {
   yarnCommand.set(listOf("ng", "serve", "--open"))
 }
 
+// task to switching yarn to Plug'n'Play, see https://yarnpkg.com/getting-started/migration#switching-to-plugnplay
+// TODO to complete it once angular officially support it and dropped node_modules folder
+tasks.register<YarnTask>("yarn-doctor") {
+  group = "build"
+  yarnCommand.set(listOf("dlx", "@yarnpkg/doctor"))
+}
+
+
+// TODO to rework following task in the future
 //tasks.register("bootRun") {
 //  group = "application"
 //  dependsOn("clean", "watch")
