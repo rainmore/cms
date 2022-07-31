@@ -34,7 +34,6 @@
               "src/main/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/main/styles.scss"
             ],
             "scripts": []
