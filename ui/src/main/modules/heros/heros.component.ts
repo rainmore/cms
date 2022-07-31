@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { HeroService }       from './hero.service';
-import { Hero }              from './hero';
-import { HEROES }            from './mock-heroes';
-import { MessageService }    from './message.service';
+import {
+  Component,
+  OnInit
+}                         from '@angular/core';
+import { HeroService }    from './hero.service';
+import { Hero }           from './hero';
+import { HEROES }         from './mock-heroes';
+import { MessageService } from './message.service';
 
 
 @Component({
@@ -16,7 +19,8 @@ export class HerosComponent implements OnInit {
 
   selectedHero?: Hero;
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private heroService: HeroService, private messageService: MessageService) {
+  }
 
   ngOnInit(): void {
     this.getHeroes();
