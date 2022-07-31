@@ -64,6 +64,11 @@ tasks.register<YarnTask>("yarn-doctor") {
   yarnCommand.set(listOf("dlx", "@yarnpkg/doctor"))
 }
 
+tasks.register<YarnTask>("test") {
+  group = "verification"
+  dependsOn("yarn_install")
+  yarnCommand.set(listOf("ng", "test"))
+}
 
 // TODO to rework following task in the future
 //tasks.register("bootRun") {
