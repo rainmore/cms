@@ -21,9 +21,9 @@
       "dom"
     ],
     "paths": {
-      "@modules/*": ["src/modules/*"],
-      "@app/*": ["src/app/*"],
-      "@style/*": ["src/scss/*"]
+      "@modules/*": ["src/main/app/modules/*"],
+      "@app/*": ["src/main/app/*"],
+      "@style/*": ["src/main/scss/*"]
     }
   },
   "angularCompilerOptions": {
