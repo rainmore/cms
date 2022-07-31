@@ -18,6 +18,7 @@ import { LoginComponent }      from '@modules/system/auth/login.component';
 import { RolesComponent }      from '@modules/users/roles/roles.component';
 import { AccountsComponent }   from '@modules/users/accounts/accounts.component';
 import { NavigationComponent } from '@modules/layout/navigation.component';
+import { ToolBarComponent }    from '@modules/layout/tool-bar.component';
 
 import { HerosComponent }      from '@modules/heros/heros.component';
 import { HeroDetailComponent } from '@modules/heros/hero-detail.component';
@@ -26,6 +27,7 @@ import { MessagesComponent }   from '@modules/heros/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
+    ToolBarComponent,
     LoginComponent,
     RolesComponent,
     AccountsComponent,

@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component }         from '@angular/core';
 import {
   BreakpointObserver,
   Breakpoints
-} from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+}                            from '@angular/cdk/layout';
+import { Observable }        from 'rxjs';
 import {
   map,
   shareReplay
-} from 'rxjs/operators';
+}                            from 'rxjs/operators';
+import {NavigationComponent} from '@modules/layout/navigation.component';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,7 @@ import {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
-
+  
   constructor(private breakpointObserver: BreakpointObserver) {
   }
 

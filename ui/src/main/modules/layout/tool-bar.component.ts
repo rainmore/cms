@@ -10,11 +10,11 @@ import {
 } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-layout-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  selector: 'app-layout-tool-bar',
+  templateUrl: './tool-bar.component.html',
+  styleUrls: ['./tool-bar.component.scss']
 })
-export class NavigationComponent {
+export class ToolBarComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
