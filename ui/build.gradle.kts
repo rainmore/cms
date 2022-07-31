@@ -54,7 +54,7 @@ tasks.register<YarnTask>("update") {
 tasks.register<YarnTask>("run") {
   group = "application"
   dependsOn("yarn_install")
-  yarnCommand.set(listOf("ng", "serve", "--open"))
+  yarnCommand.set(listOf("ng", "serve"))
 }
 
 // task to switching yarn to Plug'n'Play, see https://yarnpkg.com/getting-started/migration#switching-to-plugnplay
