@@ -1,34 +1,39 @@
-import { NgModule }                from '@angular/core';
-import { BrowserModule }           from '@angular/platform-browser';
-import { MatToolbarModule }        from '@angular/material/toolbar';
-import { MatButtonModule }         from '@angular/material/button';
-import { MatSidenavModule }        from '@angular/material/sidenav';
-import { MatIconModule }           from '@angular/material/icon';
-import { MatListModule }           from '@angular/material/list';
 import { LayoutModule }            from '@angular/cdk/layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatGridListModule }       from '@angular/material/grid-list';
+import { NgModule }                from '@angular/core';
+import {
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
+import { MatButtonModule }         from '@angular/material/button';
 import { MatCardModule }           from '@angular/material/card';
+import { MatFormFieldModule }      from '@angular/material/form-field';
+import { MatGridListModule }       from '@angular/material/grid-list';
+import { MatIconModule }           from '@angular/material/icon';
+import { MatInputModule }          from '@angular/material/input';
+import { MatListModule }           from '@angular/material/list';
 import { MatMenuModule }           from '@angular/material/menu';
-import { FormsModule }             from '@angular/forms';
-
-import { AppRoutingModule }    from './app-routing.module';
-import { AppComponent }        from './app.component';
-import { LoginComponent }      from '@modules/system/auth/login.component';
-import { RolesComponent }      from '@modules/users/roles/roles.component';
-import { AccountsComponent }   from '@modules/users/accounts/accounts.component';
-import { NavigationComponent } from '@modules/layout/navigation.component';
-import { ToolBarComponent }    from '@modules/layout/tool-bar.component';
+import { MatSidenavModule }        from '@angular/material/sidenav';
+import { MatToolbarModule }        from '@angular/material/toolbar';
+import { BrowserModule }           from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeroDetailComponent }     from '@modules/heros/hero-detail.component';
 
 import { HerosComponent }      from '@modules/heros/heros.component';
-import { HeroDetailComponent } from '@modules/heros/hero-detail.component';
 import { MessagesComponent }   from '@modules/heros/messages.component';
+import { NavigationComponent } from '@modules/layout/navigation.component';
+import { ToolBarComponent }    from '@modules/layout/tool-bar.component';
+import { SignInComponent }     from '@modules/system/auth/sign-in.component';
+import { AccountsComponent }   from '@modules/users/accounts/accounts.component';
+import { RolesComponent }      from '@modules/users/roles/roles.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent }     from './app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolBarComponent,
-    LoginComponent,
+    SignInComponent,
     RolesComponent,
     AccountsComponent,
     NavigationComponent,
@@ -39,6 +44,7 @@ import { MessagesComponent }   from '@modules/heros/messages.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -49,6 +55,8 @@ import { MessagesComponent }   from '@modules/heros/messages.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatMenuModule
   ],
   providers: [],
