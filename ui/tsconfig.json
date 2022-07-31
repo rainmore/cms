@@ -21,8 +21,7 @@
       "dom"
     ],
     "paths": {
-      "@modules/*": ["src/main/app/modules/*"],
-      "@app/*": ["src/main/app/*"],
+      "@modules/*": ["src/main/modules/*"],
       "@style/*": ["src/main/scss/*"]
     }
   },

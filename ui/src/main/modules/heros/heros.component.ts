@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeroService }       from './hero.service';
 import { Hero }              from './hero';
 import { HEROES }            from './mock-heroes';
-import { MessageService }    from '@app/heros/message.service';
+import { MessageService }    from './message.service';
 
 
 @Component({

@@ -12,16 +12,16 @@ import { MatCardModule }           from '@angular/material/card';
 import { MatMenuModule }           from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule }        from '@app/app-routing.module';
-import { AppComponent }            from '@app/app.component';
-import { LoginComponent }          from '@app/system/auth/login.component';
-import { RolesComponent }          from '@app/modules/users/roles/roles.component';
-import { AccountsComponent }       from '@app/modules/users/accounts/accounts.component';
-import { NavigationComponent }     from '@app/layout/navigation.component';
+import { AppRoutingModule }        from '@modules/app/app-routing.module';
+import { AppComponent }            from '@modules/app/app.component';
+import { LoginComponent }          from '@modules/system/auth/login.component';
+import { RolesComponent }          from '@modules/users/roles/roles.component';
+import { AccountsComponent }       from '@modules/users/accounts/accounts.component';
+import { NavigationComponent }     from '@modules/layout/navigation.component';
 
-import { HerosComponent }          from '@app/heros/heros.component';
-import { HeroDetailComponent } from './heros/hero-detail.component';
-import { MessagesComponent } from './heros/messages.component';
+import { HerosComponent }          from '@modules/heros/heros.component';
+import { HeroDetailComponent } from '@modules/heros/hero-detail.component';
+import { MessagesComponent } from '@modules/heros/messages.component';
 
 @NgModule({
   declarations: [
