@@ -3,21 +3,21 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { MessagesComponent } from '@modules/heros/messages.component';
+import { RolesComponent } from '@pages/users/roles/roles.component';
 
-describe('MessagesComponent', () => {
-  let component: MessagesComponent;
-  let fixture: ComponentFixture<MessagesComponent>;
+describe('RolesComponent', () => {
+  let component: RolesComponent;
+  let fixture: ComponentFixture<RolesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MessagesComponent]
+      declarations: [RolesComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessagesComponent);
+    fixture = TestBed.createComponent(RolesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

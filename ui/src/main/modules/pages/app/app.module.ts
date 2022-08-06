@@ -16,15 +16,15 @@ import { MatSidenavModule }        from '@angular/material/sidenav';
 import { MatToolbarModule }        from '@angular/material/toolbar';
 import { BrowserModule }           from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeroDetailComponent }     from '@modules/heros/hero-detail.component';
+import { HeroDetailComponent }     from '@pages/heros/hero-detail.component';
 
-import { HerosComponent }      from '@modules/heros/heros.component';
-import { MessagesComponent }   from '@modules/heros/messages.component';
-import { NavigationComponent } from '@modules/layout/navigation.component';
-import { ToolBarComponent }    from '@modules/layout/tool-bar.component';
-import { SignInComponent }     from '@modules/system/auth/sign-in.component';
-import { AccountsComponent }   from '@modules/users/accounts/accounts.component';
-import { RolesComponent }      from '@modules/users/roles/roles.component';
+import { HerosComponent }      from '@pages/heros/heros.component';
+import { MessagesComponent }   from '@pages/heros/messages.component';
+import { NavigationComponent } from '@pages/layout/navigation.component';
+import { ToolBarComponent }    from '@pages/layout/tool-bar.component';
+import { SignInComponent }     from '@pages/system/auth/sign-in.component';
+import { AccountsComponent }   from '@pages/users/accounts/accounts.component';
+import { RolesComponent }      from '@pages/users/roles/roles.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent }     from './app.component';

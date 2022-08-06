@@ -11,7 +11,7 @@ import { MatListModule }        from '@angular/material/list';
 import { MatSidenavModule }     from '@angular/material/sidenav';
 import { MatToolbarModule }     from '@angular/material/toolbar';
 
-import { NavigationComponent } from '@modules/layout/navigation.component';
+import { NavigationComponent } from '@pages/layout/navigation.component';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;

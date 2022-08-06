@@ -8,7 +8,7 @@ import {
   map,
   shareReplay
 }                            from 'rxjs/operators';
-import {NavigationComponent} from '@modules/layout/navigation.component';
+import {NavigationComponent} from '@pages/layout/navigation.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ import {NavigationComponent} from '@modules/layout/navigation.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
+
   constructor(private breakpointObserver: BreakpointObserver) {
   }
 

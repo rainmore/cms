@@ -3,21 +3,21 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { SignInComponent } from '@modules/system/auth/signInComponent';
+import { HerosComponent } from '@pages/heros/heros.component';
 
-describe('LoginComponent', () => {
-  let component: SignInComponent;
-  let fixture: ComponentFixture<SignInComponent>;
+describe('HerosComponent', () => {
+  let component: HerosComponent;
+  let fixture: ComponentFixture<HerosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SignInComponent]
+      declarations: [HerosComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignInComponent);
+    fixture = TestBed.createComponent(HerosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

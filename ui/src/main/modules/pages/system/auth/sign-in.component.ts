@@ -10,9 +10,9 @@ import {
   FormControl,
   FormGroup,
   Validators
-} from '@angular/forms';
-import { AuthenticationService } from '@modules/system/auth/auth.service';
-import { Authentication }        from '@modules/system/auth/Authentication';
+}                         from '@angular/forms';
+import { AuthService }    from '@services/system/auth/auth.service';
+import { Authentication } from '@entities/system/auth/authentication';
 
 @Component({
   selector: 'app-auth-sign-in',
@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
   });
 
   constructor(private breakpointObserver: BreakpointObserver,
-              private authenticationService: AuthenticationService) {
+              private authenticationService: AuthService) {
   }
 
   ngOnInit(): void {

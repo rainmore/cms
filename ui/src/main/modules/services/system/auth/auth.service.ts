@@ -1,10 +1,10 @@
 import { Injectable }     from '@angular/core';
-import { Authentication } from '@modules/system/auth/Authentication';
+import { Authentication } from '@entities/system/auth/authentication';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthService {
 
   private authentication?: Authentication;
 
