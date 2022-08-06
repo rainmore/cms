@@ -21,9 +21,9 @@
       "dom"
     ],
     "paths": {
-      "@entities/*": ["src/main/modules/entities/*"],
-      "@services/*": ["src/main/modules/services/*"],
-      "@pages/*": ["src/main/modules/pages/*"],
+      "@entities/*": ["src/main/entities/*"],
+      "@services/*": ["src/main/services/*"],
+      "@modules/*": ["src/main/modules/*"],
       "@style/*": ["src/main/scss/*"]
     }
   },

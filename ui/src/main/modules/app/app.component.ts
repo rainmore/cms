@@ -8,7 +8,7 @@ import {
   map,
   shareReplay
 }                            from 'rxjs/operators';
-import {NavigationComponent} from '@pages/layout/navigation.component';
+import {NavigationComponent} from '@modules/layout/navigation.component';
 
 @Component({
   selector: 'app-root',
