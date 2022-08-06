@@ -17,6 +17,9 @@ import { MatSidenavModule }        from '@angular/material/sidenav';
 import { MatToolbarModule }        from '@angular/material/toolbar';
 import { BrowserModule }           from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule }            from '@angular/router';
+import { Error4xxComponent }       from '@modules/errors/error-4xx.component';
+import { ErrorsModule }            from '@modules/errors/module';
 import { HeroDetailComponent }     from '@modules/heros/hero-detail.component';
 
 import { HerosComponent }      from '@modules/heros/heros.component';
@@ -43,10 +46,11 @@ import { AppComponent }     from './app.component';
     MessagesComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
+    ErrorsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
     FlexLayoutModule,
