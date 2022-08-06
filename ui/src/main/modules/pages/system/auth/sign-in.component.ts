@@ -21,7 +21,6 @@ import { Authentication } from '@entities/system/auth/authentication';
 })
 export class SignInComponent implements OnInit {
   hide = true;
-  rowHeightRatio = '2:1';
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -33,13 +32,6 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([
-      Breakpoints.Handset
-    ]).subscribe(result => {
-        if (result.matches) {
-          this.rowHeightRatio = '0.8:1';
-        }
-      });
   }
 
   handleLogin(): void {

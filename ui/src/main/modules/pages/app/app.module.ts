@@ -1,5 +1,6 @@
 import { LayoutModule }            from '@angular/cdk/layout';
 import { NgModule }                from '@angular/core';
+import { FlexLayoutModule }        from '@angular/flex-layout';
 import {
   FormsModule,
   ReactiveFormsModule
@@ -48,6 +49,7 @@ import { AppComponent }     from './app.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
