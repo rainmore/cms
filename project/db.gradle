@@ -1,6 +1,0 @@
-dependencies {
-    runtimeOnly libs.mysql.connector
-    implementation libs.hikaricp
-    implementation libs.bundles.jpa.hibernate
-
-}

@@ -1,8 +1,0 @@
-dependencies {
-    implementation libs.bundles.logging
-    runtimeOnly libs.groovy.core
-}
-
-configurations {
-    all*.exclude group: 'org.apache.logging.log4j'
-}

@@ -1,12 +1,14 @@
-import java.nio.file.Path
 import org.gradle.api.tasks.wrapper.Wrapper
 
 plugins {
-    id("org.springframework.boot")                    apply false
-    id("com.github.hauner.jarTest")                   apply false
-    id("com.bmuschko.docker-spring-boot-application") apply false
-    id("com.github.node-gradle.node")                 apply false
-    id("org.ajoberstar.grgit")
+    alias(libs.plugins.jarTest) apply false
+    alias(libs.plugins.docker) apply false
+    alias(libs.plugins.shadow) apply false
+    alias(libs.plugins.scalatest) apply false
+    alias(libs.plugins.git)
+    alias(libs.plugins.spring.boot) apply false
+    alias(libs.plugins.spring.dependency.management) apply false
+    alias(libs.plugins.node.gradle) apply false
 
     id("idea")
 }
@@ -24,7 +26,24 @@ allprojects {
     }
 }
 
+val projectLibDir = rootDir.toPath().resolve("project")
+
 tasks.named<Wrapper>("wrapper") {
     distributionType = Wrapper.DistributionType.BIN
     gradleVersion = project.properties["gradleVersion"] as String
+}
+
+tasks.register("tagVersion") {
+    group = "Publishing"
+    description = "Tags the current head with the project's version."
+    doLast {
+        val grgit: org.ajoberstar.grgit.Grgit by project
+        val version: String by project
+        grgit.tag.add {
+            name = version
+            message = "Release of v${version}"
+        }
+
+        logger.lifecycle("A new version {} has been tagged.", version)
+    }
 }

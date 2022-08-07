@@ -4,8 +4,9 @@ import com.github.gradle.node.yarn.task.YarnTask
 import org.gradle.api.tasks.Delete
 
 plugins {
+  alias(libs.plugins.node.gradle)
+
   id("idea")
-  id("com.github.node-gradle.node")
 }
 
 // See node example in https://github.com/node-gradle/gradle-node-plugin/blob/master/src/test/resources/fixtures/kotlin/build.gradle.kts
